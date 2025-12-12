@@ -1,0 +1,3 @@
+password atlas : u4YTkCG7xGSMinhk
+username :  dakshhardiya34_db_user
+link : mongodb+srv://dakshhardiya34_db_user:u4YTkCG7xGSMinhk@cluster0.xtzbpoy.mongodb.net/?appName=Cluster0
