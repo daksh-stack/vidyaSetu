@@ -8,13 +8,30 @@ import { ArrowLeft } from "lucide-react";
 
 export default function LoginPage() {
     const handleSubmit = async (data: Record<string, string>) => {
-        // Mock auth delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: data.email,
+                    password: data.password,
+                }),
+            });
 
-        const email = data.email;
-        const name = email.split('@')[0];
-        localStorage.setItem("vidya_user_name", name);
-        window.location.href = "/dashboard";
+            const result = await response.json();
+
+            if (!response.ok) {
+                alert(result.message || 'Login failed');
+                return;
+            }
+
+            localStorage.setItem("vidya_user_name", result.user.name);
+            localStorage.setItem("vidya_user_email", result.user.email);
+            window.location.href = "/dashboard";
+        } catch (error) {
+            alert('An error occurred during login');
+            console.error(error);
+        }
     };
 
     return (

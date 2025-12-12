@@ -1,0 +1,380 @@
+[
+    {
+        "title": "Two Sum",
+        "type": "coding",
+        "difficulty": "easy",
+        "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice.",
+        "topics": [
+            "arrays",
+            "hash-table"
+        ],
+        "tags": [
+            "top-100",
+            "blind-75"
+        ],
+        "companies": [
+            "Google",
+            "Amazon",
+            "Microsoft",
+            "Facebook"
+        ],
+        "patternFamily": "hash-lookup",
+        "starterCode": "function twoSum(nums, target) {\n  // Write your code here\n  \n}",
+        "testCases": [
+            {
+                "input": "[2,7,11,15], 9",
+                "expectedOutput": "[0,1]",
+                "isHidden": false
+            },
+            {
+                "input": "[3,2,4], 6",
+                "expectedOutput": "[1,2]",
+                "isHidden": false
+            },
+            {
+                "input": "[3,3], 6",
+                "expectedOutput": "[0,1]",
+                "isHidden": true
+            }
+        ],
+        "solvedBy": 1205
+    },
+    {
+        "title": "Valid Parentheses",
+        "type": "coding",
+        "difficulty": "easy",
+        "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order.",
+        "topics": [
+            "stack",
+            "strings"
+        ],
+        "tags": [
+            "top-100",
+            "blind-75"
+        ],
+        "companies": [
+            "Amazon",
+            "Bloomberg",
+            "Facebook"
+        ],
+        "patternFamily": "stack-matching",
+        "starterCode": "function isValid(s) {\n  // Write your code here\n  \n}",
+        "testCases": [
+            {
+                "input": "\"()\"",
+                "expectedOutput": "true",
+                "isHidden": false
+            },
+            {
+                "input": "\"()[]{}\"",
+                "expectedOutput": "true",
+                "isHidden": false
+            },
+            {
+                "input": "\"(]\"",
+                "expectedOutput": "false",
+                "isHidden": false
+            }
+        ],
+        "solvedBy": 980
+    },
+    {
+        "title": "Maximum Subarray",
+        "type": "coding",
+        "difficulty": "medium",
+        "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.",
+        "topics": [
+            "arrays",
+            "dynamic-programming",
+            "divide-and-conquer"
+        ],
+        "tags": [
+            "top-100",
+            "kadane"
+        ],
+        "companies": [
+            "Amazon",
+            "LinkedIn",
+            "Apple"
+        ],
+        "patternFamily": "kadane-algorithm",
+        "starterCode": "function maxSubArray(nums) {\n  // Write your code here\n  \n}",
+        "testCases": [
+            {
+                "input": "[-2,1,-3,4,-1,2,1,-5,4]",
+                "expectedOutput": "6",
+                "isHidden": false
+            },
+            {
+                "input": "[1]",
+                "expectedOutput": "1",
+                "isHidden": false
+            },
+            {
+                "input": "[5,4,-1,7,8]",
+                "expectedOutput": "23",
+                "isHidden": true
+            }
+        ],
+        "solvedBy": 756
+    },
+    {
+        "title": "Sliding Window Maximum",
+        "type": "coding",
+        "difficulty": "hard",
+        "description": "You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. Return the max sliding window.",
+        "topics": [
+            "arrays",
+            "sliding-window",
+            "deque",
+            "monotonic-queue"
+        ],
+        "tags": [
+            "hard",
+            "google-favorite"
+        ],
+        "companies": [
+            "Google",
+            "Amazon",
+            "Citadel"
+        ],
+        "patternFamily": "sliding-window",
+        "starterCode": "function maxSlidingWindow(nums, k) {\n  // Write your code here\n  \n}",
+        "testCases": [
+            {
+                "input": "[1,3,-1,-3,5,3,6,7], 3",
+                "expectedOutput": "[3,3,5,5,6,7]",
+                "isHidden": false
+            }
+        ],
+        "solvedBy": 340
+    },
+    {
+        "title": "BST Search Complexity",
+        "type": "mcq",
+        "difficulty": "easy",
+        "question": "What is the time complexity of searching in a balanced Binary Search Tree (BST)?",
+        "topics": [
+            "data-structures",
+            "trees",
+            "complexity"
+        ],
+        "tags": [
+            "fundamentals"
+        ],
+        "options": [
+            "O(n)",
+            "O(log n)",
+            "O(n log n)",
+            "O(1)"
+        ],
+        "correctOption": 1,
+        "solvedBy": 892
+    },
+    {
+        "title": "Stack LIFO Principle",
+        "type": "mcq",
+        "difficulty": "easy",
+        "question": "Which data structure follows the LIFO (Last In First Out) principle?",
+        "topics": [
+            "data-structures",
+            "stack"
+        ],
+        "tags": [
+            "fundamentals"
+        ],
+        "options": [
+            "Queue",
+            "Linked List",
+            "Stack",
+            "Tree"
+        ],
+        "correctOption": 2,
+        "solvedBy": 1120
+    },
+    {
+        "title": "SQL Full Form",
+        "type": "mcq",
+        "difficulty": "easy",
+        "question": "What does SQL stand for?",
+        "topics": [
+            "databases",
+            "sql"
+        ],
+        "tags": [
+            "fundamentals"
+        ],
+        "options": [
+            "Structured Question Language",
+            "Structured Query Language",
+            "Simple Query Language",
+            "Standard Query Level"
+        ],
+        "correctOption": 1,
+        "solvedBy": 1340
+    },
+    {
+        "title": "HashMap vs TreeMap",
+        "type": "mcq",
+        "difficulty": "medium",
+        "question": "Which statement is TRUE about HashMap vs TreeMap in Java?",
+        "topics": [
+            "data-structures",
+            "hash-table",
+            "trees"
+        ],
+        "tags": [
+            "java",
+            "comparison"
+        ],
+        "options": [
+            "HashMap maintains insertion order",
+            "TreeMap has O(1) lookup time",
+            "HashMap has O(1) average lookup, TreeMap has O(log n)",
+            "Both have the same time complexity for all operations"
+        ],
+        "correctOption": 2,
+        "solvedBy": 567
+    },
+    {
+        "title": "REST API Methods",
+        "type": "mcq",
+        "difficulty": "easy",
+        "question": "Which HTTP method is typically used to update an existing resource?",
+        "topics": [
+            "web-development",
+            "rest-api"
+        ],
+        "tags": [
+            "fundamentals",
+            "backend"
+        ],
+        "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+        ],
+        "correctOption": 2,
+        "solvedBy": 1089
+    },
+    {
+        "title": "Big O Notation",
+        "type": "mcq",
+        "difficulty": "medium",
+        "question": "What is the time complexity of merging two sorted arrays of size n each?",
+        "topics": [
+            "algorithms",
+            "sorting",
+            "complexity"
+        ],
+        "tags": [
+            "fundamentals"
+        ],
+        "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(n²)",
+            "O(log n)"
+        ],
+        "correctOption": 0,
+        "solvedBy": 678
+    },
+    {
+        "title": "Challenging Project",
+        "type": "hr",
+        "difficulty": "medium",
+        "question": "Tell me about a challenging project you worked on.",
+        "topics": [
+            "behavioral",
+            "experience",
+            "problem-solving"
+        ],
+        "tags": [
+            "common",
+            "star-method"
+        ],
+        "solvedBy": 234
+    },
+    {
+        "title": "Why Our Company",
+        "type": "hr",
+        "difficulty": "easy",
+        "question": "Why do you want to work for our company?",
+        "topics": [
+            "behavioral",
+            "motivation",
+            "company-research"
+        ],
+        "tags": [
+            "common",
+            "culture-fit"
+        ],
+        "solvedBy": 456
+    },
+    {
+        "title": "Five Year Plan",
+        "type": "hr",
+        "difficulty": "medium",
+        "question": "Where do you see yourself in 5 years?",
+        "topics": [
+            "behavioral",
+            "career-goals",
+            "ambition"
+        ],
+        "tags": [
+            "common",
+            "growth"
+        ],
+        "solvedBy": 389
+    },
+    {
+        "title": "Team Conflict",
+        "type": "hr",
+        "difficulty": "hard",
+        "question": "Describe a time you had a conflict with a team member. How did you resolve it?",
+        "topics": [
+            "behavioral",
+            "teamwork",
+            "conflict-resolution"
+        ],
+        "tags": [
+            "common",
+            "star-method",
+            "interpersonal"
+        ],
+        "solvedBy": 178
+    },
+    {
+        "title": "Failure Experience",
+        "type": "hr",
+        "difficulty": "hard",
+        "question": "Tell me about a time you failed. What did you learn from it?",
+        "topics": [
+            "behavioral",
+            "self-reflection",
+            "growth-mindset"
+        ],
+        "tags": [
+            "common",
+            "star-method"
+        ],
+        "solvedBy": 145
+    },
+    {
+        "title": "Leadership Example",
+        "type": "hr",
+        "difficulty": "medium",
+        "question": "Give an example of when you demonstrated leadership.",
+        "topics": [
+            "behavioral",
+            "leadership",
+            "initiative"
+        ],
+        "tags": [
+            "common",
+            "star-method"
+        ],
+        "solvedBy": 267
+    }
+]

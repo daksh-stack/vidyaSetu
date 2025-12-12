@@ -7,9 +7,31 @@ import { ArrowLeft } from "lucide-react";
 
 export default function SignupPage() {
     const handleSubmit = async (data: Record<string, string>) => {
-        // Mock auth delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        window.location.href = "/dashboard";
+        try {
+            const response = await fetch('/api/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    password: data.password,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                alert(result.message || 'Signup failed');
+                return;
+            }
+
+            localStorage.setItem("vidya_user_name", result.user.name);
+            localStorage.setItem("vidya_user_email", result.user.email);
+            window.location.href = "/dashboard";
+        } catch (error) {
+            alert('An error occurred during signup');
+            console.error(error);
+        }
     };
 
     return (
@@ -17,7 +39,7 @@ export default function SignupPage() {
             {/* <AnimatedBackground /> */}
 
             {/* Back Home */}
-            
+
 
             <div className="w-full max-w-lg z-10 relative">
                 <DynamicAuthForm

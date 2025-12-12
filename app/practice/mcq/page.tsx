@@ -4,32 +4,13 @@ import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, XCircle, Loader2 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-
-const questions = [
-    {
-        id: 1,
-        question: "What is the time complexity of searching in a balanced Binary Search Tree (BST)?",
-        options: ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
-        correct: 1,
-    },
-    {
-        id: 2,
-        question: "Which data structure follows the LIFO (Last In First Out) principle?",
-        options: ["Queue", "Linked List", "Stack", "Tree"],
-        correct: 2,
-    },
-    {
-        id: 3,
-        question: "What does SQL stand for?",
-        options: ["Structured Question Language", "Structured Query Language", "Simple Query Language", "Standard Query Level"],
-        correct: 1,
-    },
-];
+import { useState, useEffect } from "react";
+import { useQuestions, Question } from "@/hooks/useQuestions";
 
 export default function MCQPracticePage() {
+    const { questions, loading, error } = useQuestions({ type: 'mcq' });
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -42,9 +23,9 @@ export default function MCQPracticePage() {
     };
 
     const handleSubmit = () => {
-        if (selectedOption === null) return;
+        if (selectedOption === null || !questions[currentQuestion]) return;
         setIsSubmitted(true);
-        if (selectedOption === questions[currentQuestion].correct) {
+        if (selectedOption === questions[currentQuestion].correctOption) {
             setScore(s => s + 1);
         }
     };
@@ -58,6 +39,27 @@ export default function MCQPracticePage() {
             setShowResult(true);
         }
     };
+
+    if (loading) {
+        return (
+            <div className="flex h-full items-center justify-center">
+                <Loader2 className="h-8 w-8 animate-spin text-white" />
+            </div>
+        );
+    }
+
+    if (error || questions.length === 0) {
+        return (
+            <div className="flex h-full flex-col items-center justify-center p-6">
+                <GlassCard className="max-w-md text-center p-8">
+                    <p className="text-gray-400 mb-4">{error || 'No questions available. Please seed the database.'}</p>
+                    <Link href="/dashboard">
+                        <Button>Return to Dashboard</Button>
+                    </Link>
+                </GlassCard>
+            </div>
+        );
+    }
 
     if (showResult) {
         return (
@@ -87,7 +89,7 @@ export default function MCQPracticePage() {
                 </Link>
                 <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-gray-400">Question {currentQuestion + 1} of {questions.length}</span>
-                    <span className="text-sm font-medium text-white">Time: 00:45</span>
+                    <span className="text-xs text-gray-500 capitalize">{question.difficulty} • {question.topics?.join(', ')}</span>
                 </div>
                 <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
                     <motion.div
@@ -109,11 +111,11 @@ export default function MCQPracticePage() {
                         <h2 className="text-2xl font-bold text-white mb-8">{question.question}</h2>
 
                         <div className="space-y-4">
-                            {question.options.map((option, index) => {
+                            {question.options?.map((option, index) => {
                                 let borderColor = "border-white/10";
                                 let bgColor = "bg-white/5";
                                 if (isSubmitted) {
-                                    if (index === question.correct) {
+                                    if (index === question.correctOption) {
                                         borderColor = "border-white";
                                         bgColor = "bg-white text-black";
                                     } else if (index === selectedOption) {
@@ -136,9 +138,9 @@ export default function MCQPracticePage() {
                                             !isSubmitted && "hover:border-white/50"
                                         )}
                                     >
-                                        <span className={cn("font-medium", isSubmitted && index === question.correct ? "text-black" : "text-gray-200")}>{option}</span>
-                                        {isSubmitted && index === question.correct && <CheckCircle className="h-5 w-5 text-black" />}
-                                        {isSubmitted && index === selectedOption && index !== question.correct && <XCircle className="h-5 w-5 text-gray-500" />}
+                                        <span className={cn("font-medium", isSubmitted && index === question.correctOption ? "text-black" : "text-gray-200")}>{option}</span>
+                                        {isSubmitted && index === question.correctOption && <CheckCircle className="h-5 w-5 text-black" />}
+                                        {isSubmitted && index === selectedOption && index !== question.correctOption && <XCircle className="h-5 w-5 text-gray-500" />}
                                     </div>
                                 )
                             })}
