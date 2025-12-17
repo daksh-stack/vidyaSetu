@@ -89,7 +89,7 @@ export default function Home() {
                 Analyze your performance with moonlit analytics.
                 Identify weak points in your armor and fortify them with targeted practice sets.
               </p>
-              <Link href="/dashboard" className="inline-flex items-center gap-2 mt-8 text-indigo-400 hover:text-white transition-colors group">
+              <Link href="/signup" className="inline-flex items-center gap-2 mt-8 text-indigo-400 hover:text-white transition-colors group">
                 <span className="tracking-widest uppercase text-sm font-bold">View Analytics</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>

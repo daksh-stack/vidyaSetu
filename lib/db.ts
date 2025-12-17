@@ -1,4 +1,9 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Configure DNS to use Google's servers - fixes ECONNREFUSED on networks
+// that block MongoDB Atlas SRV DNS lookups
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const MONGODB_URI = process.env.MONGODB_URI;
 

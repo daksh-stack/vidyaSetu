@@ -21,7 +21,6 @@ const sidebarItems = [
     { name: "MCQ Battle", href: "/practice/mcq", icon: Trophy },
     { name: "Mock Interviews", href: "/practice/hr", icon: Users },
     { name: "Learning Path", href: "/dashboard/path", icon: BookOpen },
-    { name: "Analytics", href: "/dashboard/analytics", icon: BarChart },
     { name: "Settings", href: "/settings", icon: Settings },
 ];
 
