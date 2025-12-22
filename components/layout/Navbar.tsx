@@ -46,7 +46,7 @@ export const Navbar = () => {
                 <nav className="hidden md:flex items-center gap-8">
                     {[
                         { name: "Features", href: "/#features" },
-                        { name: "Practice", href: "/practice" },
+                        { name: "Practice", href: "/dashboard" },
                         { name: "About", href: "/#about" },
                     ].map((item) => (
                         <Link

@@ -28,7 +28,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
-            <Link href="/practice">
+            <Link href="/login">
               <Button className="h-14 px-10 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-lg font-bold tracking-wide transition-all shadow-lg shadow-indigo-500/20">
                 Enter the Void
               </Button>
